@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
+    <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Ақпараттық жүйеге кіру</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Start css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!-- End css -->
+</head>
+<body class="vertical-layout">
+<!-- Start Containerbar -->
+<div id="containerbar" class="containerbar authenticate-bg">
+    <!-- Start Container -->
+    <div class="container">
+        <div class="auth-box login-box">
+            <!-- Start row -->
+            <div class="row no-gutters align-items-center justify-content-center">
+                <!-- Start col -->
+                <div class="col-md-6 col-lg-5">
+                    <!-- Start Auth Box -->
+                    <div class="auth-box-right">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/login" method="post">
+                                    <div class="form-head">
+                                        <a href="/" class="logo"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a>
+                                    </div>
+                                    <h4 class="text-primary my-4">Ақпараттық жүйеге кіру</h4>
+<!--                                    <div class="btn btn-warning">-->
+<!--                                        <label for="files">Аутентификация кілтін таңдау</label>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group">-->
+<!--                                        <input type="file" class="form-control" style="visibility:hidden;" id="files" placeholder="Enter Username here">-->
+<!--                                    </div>-->
+                                    <div class="form-group">
+                                        <input type="text" name="username" class="form-control" id="username" placeholder="ЖСН" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Құпия сөз" required>
+                                    </div>
+                                    <div class="form-row mb-3">
+                                        <div class="col-sm-6"></div>
+                                        <div class="col-sm-6">
+                                            <div class="forgot-psw">
+                                                <a id="forgot-psw" href="/forget-pass" class="font-14">Құпия сөзді ұмыттыңыз ба?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn btn-success btn-lg btn-block font-18" value="Жүйеге кіру">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Auth Box -->
+                </div>
+                <!-- End col -->
+            </div>
+            <!-- End row -->
+        </div>
+    </div>
+    <!-- End Container -->
+</div>
+<!-- End Containerbar -->
+<!-- Start js -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<!-- End js -->
+</body>
+</html>
+
+<!--<form class="theme-form login-form" action="/login" method="POST">-->
+<!--    <h4>Ақпараттық жүйеге кіру</h4>-->
+<!--    <h6>Өзіңіздің жеке деректеріңізді қолдана отырып жүйеге кіріңіз</h6>-->
+<!--    <span th:if="${param.error}">Қолданушы аты немесе құпиясөз дұрыс енгізілмеді</span>-->
+<!--    <span th:if="${param.blocked}">Сіздің аккаунт администратормен бұғатталған</span>-->
+<!--    <span th:if="${param.notEnabled}">Сіздің аккаунт әлі қосылмаған</span>-->
+<!--    <span th:if="${param.logout}">Сіз жүйеден шықтыңыз</span>-->
+<!--    <span th:if="${param.success_register}">Сіз жүйеге сәтті тіркелдіңіз</span>-->
+<!--    <span th:if="${param.success_update}">Сіз жеке деректеріңіз сәтті өзгерді</span>-->
+
+<!--    <div class="form-group">-->
+<!--        <label>Key</label>-->
+<!--        <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>-->
+<!--            <input class="form-control" type="file" name="publicKey" required="">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label>Құпия сөз</label>-->
+<!--        <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>-->
+<!--            <input class="form-control" type="password" name="password" required=""-->
+<!--                   placeholder="*********">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <input class="btn btn-primary btn-block" type="submit" value="Кіру">-->
+<!--    </div>-->
+<!--    <p>Егер аккаунтыңыз болмаса тіркеліңіз <br>-->
+<!--        <a class="ms-2" href="/sign-up">Жүйеге тіркелу</a>-->
+<!--    </p>-->
+<!--</form>-->

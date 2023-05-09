@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/2023ProjectsDB?currentSchema=eds'
+    username: 'postgres'
+    password: 'root'
+
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: 'eds'
+      show-sql: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: companytestdiploma@gmail.com
+    password: nqpegwbrtbaoqnpw
+    #    https://support.google.com/accounts/answer/6010255?hl=ru
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+server:
+  port: 8080
+  error:
+    include-message: always
+  tomcat:
+    uri-encoding: UTF-8
