@@ -41,6 +41,13 @@
 <!--                                    <div class="form-group">-->
 <!--                                        <input type="file" class="form-control" style="visibility:hidden;" id="files" placeholder="Enter Username here">-->
 <!--                                    </div>-->
+
+                                    <div class="alert alert-danger" role="alert" th:if="${param.notEnabled}">
+                                        Сіздің аккаунт әлі іске қосылмаған
+                                    </div>
+                                    <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                                        ЖСН немесе құпия сөз қате терілді
+                                    </div>
                                     <div class="form-group">
                                         <input type="text" name="username" class="form-control" id="username" placeholder="ЖСН" required>
                                     </div>

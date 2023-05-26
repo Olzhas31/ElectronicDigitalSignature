@@ -8,6 +8,7 @@ import com.example.ElectronicDigitalSignature.util.KeyUtil;
 import lombok.AllArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -15,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.*;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Service
 @AllArgsConstructor
@@ -70,6 +72,20 @@ public class KeyServiceImpl implements IKeyService {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public boolean verifyKey(UserEntity user, MultipartFile key) {
+        Path myPath = Paths.get( "keys");
+        File file = new File( myPath + "/" + user.getId() +  "/private.key");
+        byte[] bytes = new byte[(int) file.length()];
+
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            return Arrays.equals(fis.readAllBytes(), key.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private boolean verify() {

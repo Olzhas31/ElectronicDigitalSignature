@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -44,7 +45,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void create(String iin, String name, String surname, String midName, String email) {
+    public void create(String iin, String name, String surname, String midName, String email, String gender, String phoneNumber) {
         if (userRepository.existsByIin(iin)) {
             throw new IinAlreadyExistsException("iin is already exists");
         }
@@ -59,6 +60,8 @@ public class UserServiceImpl implements IUserService {
                 .name(name)
                 .surname(surname)
                 .email(email)
+                .gender(gender)
+                .phoneNumber(phoneNumber)
                 .password(passwordEncoder.encode(password))
                 .role(Roles.USER.toString())
                 .build();
@@ -85,6 +88,14 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(passwordEncoder.encode(password));
 
         userRepository.save(user);
+    }
+
+    @Override
+    public List<UserEntity> getManagers() {
+        return userRepository.findAll()
+                .stream()
+                .filter(user -> user.getRole().equals(Roles.MANAGER.name()))
+                .toList();
     }
 
     public static String generateRandomPassword(int len) {

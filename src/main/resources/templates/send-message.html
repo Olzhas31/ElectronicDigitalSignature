@@ -256,11 +256,15 @@
                                     <span>Электрондық почта</span>
                                 </a>
                             </li>
-                            <li class="scroll">
-                                <a href="/requests">
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="assets/images/svg-icon/components.svg" class="img-fluid" alt="components">
-                                    <span>Сұраныстар</span>
+                                    <span>Өтініш</span>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/new-otinish">Жаңа өтініш беру</a></li>
+                                    <li><a href="/otinishter">Менің өтініштерім</a></li>
+                                </ul>
                             </li>
                             <li class="scroll" sec:authorize="isAuthenticated()" th:if="${user.role == 'MANAGER'}">
                                 <a href="/manager">
@@ -356,7 +360,7 @@
                                 <!--    <br>-->
                                 <!--    > <br>-->
                                 <!--</form>-->
-                                <form action="/send-message" method="post" id="form1" enctype="multipart/form-data">
+                                <form action="/send-message" method="post" id="form1" enctype="multipart/form-data" >
                                     <div class="form-group row">
                                         <label for="emailTo" class="col-sm-2 col-form-label">Кімге</label>
                                         <div class="col-sm-10">
@@ -378,7 +382,11 @@
                                     </div>
                                     <div class="form-group row text-right">
                                         <div class="col-sm-12">
-                                            <input type="file" name="key" class="btn btn-primary-rgba my-1" value="ЭЦҚ қолдану">
+                                            <label for="input_key" class="btn btn-primary-rgba my-1">
+                                                <span class="feedback__text">ЭЦҚ қолдану</span>
+                                                <input type="file" name="key" id="input_key" style="display: none">
+                                            </label>
+<!--                                            <input type="file" name="key" class="btn btn-primary-rgba my-1" value="ЭЦҚ қолдану">-->
 <!--                                            <i class="feather icon-edit mr-2"></i>-->
                                             <button type="submit" form="form1" class="btn btn-success-rgba my-1"><i class="feather icon-send mr-2"></i>Жіберу</button>
                                             <a href="/send-message" class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Өшіру</a>

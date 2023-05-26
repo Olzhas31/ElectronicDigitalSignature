@@ -1,7 +1,5 @@
 package com.example.ElectronicDigitalSignature.controller;
 
-import com.example.ElectronicDigitalSignature.entity.KeyEntity;
-import com.example.ElectronicDigitalSignature.entity.TokenEntity;
 import com.example.ElectronicDigitalSignature.entity.UserEntity;
 import com.example.ElectronicDigitalSignature.service.IKeyService;
 import com.example.ElectronicDigitalSignature.service.ITokenService;
@@ -9,13 +7,10 @@ import com.example.ElectronicDigitalSignature.service.IUserService;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.*;
@@ -40,12 +35,21 @@ public class MainController {
     }
 
     @GetMapping("/contact-us")
-    public String contactUs() {
+    public String contactUs(Authentication authentication, Model model) {
+        if (authentication != null) {
+            UserEntity user = (UserEntity) authentication.getPrincipal();
+            model.addAttribute("user", user);
+        }
+        model.addAttribute("managers", userService.getManagers());
         return "contact-us";
     }
 
     @GetMapping("/about-us")
-    public String aboutUs() {
+    public String aboutUs(Authentication authentication, Model model) {
+        if (authentication != null) {
+            UserEntity user = (UserEntity) authentication.getPrincipal();
+            model.addAttribute("user", user);
+        }
         return "about-us";
     }
 

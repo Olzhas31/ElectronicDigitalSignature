@@ -253,11 +253,15 @@
                                     <span>Электрондық почта</span>
                                 </a>
                             </li>
-                            <li class="scroll">
-                                <a href="/requests">
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="assets/images/svg-icon/components.svg" class="img-fluid" alt="components">
-                                    <span>Сұраныстар</span>
+                                    <span>Өтініш</span>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/new-otinish">Жаңа өтініш беру</a></li>
+                                    <li><a href="/otinishter">Менің өтініштерім</a></li>
+                                </ul>
                             </li>
                             <li class="scroll" sec:authorize="isAuthenticated()" th:if="${user.role == 'MANAGER'}">
                                 <a href="/manager">
@@ -285,21 +289,135 @@
             <!-- End container-fluid -->
         </div>
         <!-- End Navigationbar -->
+
+        <!-- Start Breadcrumbbar -->
+        <div class="breadcrumbbar">
+            <div class="row align-items-center">
+                <div class="col-md-8 col-lg-8">
+                    <h4 class="page-title">Басты бет</h4>
+                    <div class="breadcrumb-list">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumbbar -->
         <!-- Start Contentbar -->
         <div class="contentbar">
             <!-- Start row -->
             <div class="row">
                 <!-- Start col -->
-                <div class="col-md-12 col-lg-12 col-xl-12">
-                    <div class="text-center mt-3 mb-5">
-                        <h4>Басты бет</h4>
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <div class="card m-b-30">
+                        <img class="card-img-top" src="assets/images/pic1_6.png" alt="blog">
+                        <div class="card-body">
+                            <p class="text-center mb-3"><span class="badge badge-success text-uppercase">Электрондық почта</span></p>
+                            <h5 class="card-title font-18">Электрондық почта</h5>
+                            <p class="card-text mb-0">Басқа қолданушылармен хабарлама алмасу. Хабарламалар алмасу кезінде электрондық цифрлық қолтаңбаны пайдалану</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <div class="blog-link">
+                                        <a href="/inbox" class="btn btn-primary-rgba">Өту<i class="feather icon-arrow-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="blog-meta">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End col -->
+                <!-- Start col -->
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <div class="card m-b-30">
+                        <img class="card-img-top" src="assets/images/appl.jpg" style="width: 300px; margin: auto" alt="blog">
+                        <div class="card-body">
+                            <p class="text-center mb-3"><span class="badge badge-danger text-uppercase">Өтініштер</span></p>
+                            <h5 class="card-title font-18">Мемлекеттік органдарға өтініш беру</h5>
+                            <p class="card-text mb-0">Жеңілдіктер, әлеуметтік мәртебе бойынша жәрдемақылар алу, кәсіпкерлік және білім беру мәселелері, құқықтардың бұзылуы, зейнетақы төлемдері, шәкіртақы мәселелері, еңбекақының төленбеуі</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <div class="blog-link">
+                                        <a href="/new-otinish" class="btn btn-primary-rgba">Жаңа өтініш беру<i class="feather icon-arrow-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="blog-meta">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End col -->
+                <!-- Start col -->
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <div class="card m-b-30">
+                        <img class="card-img-top" src="assets/images/aboutUs.png" alt="blog">
+                        <div class="card-body">
+                            <p class="text-center mb-3"><span class="badge badge-info text-uppercase">Ақпарат</span></p>
+                            <h5 class="card-title font-18">Ақпараттық жүйе туралы ақпарат</h5>
+                            <p class="card-text mb-0">Әзірленген ақпараттық жүйе туралы ақпарат. Жиі қойылатын сұрақтар</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <div class="blog-link">
+                                        <a href="/about-us" class="btn btn-primary-rgba">Өту<i class="feather icon-arrow-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="blog-meta">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End col -->
+                <!-- Start col -->
+                <div class="col-md-12 col-lg-6 col-xl-4">
+                    <div class="card m-b-30">
+                        <img class="card-img-top" src="assets/images/managers.jpg" alt="blog">
+                        <div class="card-body">
+                            <p class="text-center mb-3"><span class="badge badge-success text-uppercase">Менеджерлер</span></p>
+                            <h5 class="card-title font-18">Менеджерлер</h5>
+                            <p class="card-text mb-0">Біздің менеджерлердің тізімі. Байланыс телефондары мен электрондық почталары</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <div class="blog-link">
+                                        <a href="/contact-us" class="btn btn-primary-rgba">Өту<i class="feather icon-arrow-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="blog-meta">
+                                        <ul class="list-inline mb-0">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <!-- End col -->
             </div>
             <!-- End row -->
         </div>
-        <!-- End Contentbar -->
+
         <!-- Start Footerbar -->
         <div class="footerbar">
             <footer class="footer">

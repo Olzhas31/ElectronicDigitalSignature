@@ -33,8 +33,8 @@ public class UserController {
 
     @PostMapping("/register-user")
     public String registerUser(String iin, String name, String surname,
-                               String midName, String email) {
-        userService.create(iin, name, surname, midName, email);
+                               String midName, String email, String gender, String phoneNumber) {
+        userService.create(iin, name, surname, midName, email, gender, phoneNumber);
         return "redirect:/";
     }
 

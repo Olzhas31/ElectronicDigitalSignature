@@ -7,7 +7,7 @@
     <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
     <meta name="author" content="Themesbox">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Басты бет</title>
+    <title>Өтініш</title>
     <!-- Fevicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <!-- Start css -->
@@ -293,15 +293,14 @@
         <div class="breadcrumbbar">
             <div class="row align-items-center">
                 <div class="col-md-8 col-lg-8">
-                    <h4 class="page-title">Менеджер</h4>
+                    <h4 class="page-title">Өтініш</h4>
                     <div class="breadcrumb-list">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Басты бет</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Менеджер</li>
+                            <li class="breadcrumb-item"><a href="/">Басты бет</a></li>
+                            <li class="breadcrumb-item"><a href="#">Өтініш</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Өтініштер</li>
                         </ol>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-4">
                 </div>
             </div>
         </div>
@@ -313,21 +312,45 @@
             <div class="row">
                 <!-- Start col -->
                 <div class="col-md-12 col-lg-12 col-xl-12">
-                    <div class="card">
+                    <div class="text-center mt-3 mb-5">
+                        <h4>Өтініштер</h4>
+                    </div>
+                </div>
+                <!-- Start col -->
+                <div class="col-lg-12">
+                    <div class="card m-b-30">
                         <div class="card-body">
-                            <h6 class="card-subtitle">Менеджер парақшасы</h6>
-                            <hr>
-                            <a href="/register-user"> Жаңа қолданушыны тіркеу</a>
-                            <hr>
-                            <a href="/manager-otinishter"> Өтініштер</a>
+                            <div class="table-responsive m-b-30">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Түрі</th>
+                                        <th scope="col">Тиісті орган</th>
+                                        <th scope="col">Құрылған уақыты</th>
+                                        <th scope="col">Автор</th>
+                                        <th scope="col">Сілтеме</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="otinish : ${otinishter}">
+                                        <th scope="row"><span th:text="${otinish.id}"></span></th>
+                                        <td><span th:text="${otinish.type}"></span></td>
+                                        <td><span th:text="${otinish.organ}"></span></td>
+                                        <td><span th:text="${otinish.createdTime}"></span></td>
+                                        <td><span th:text="${otinish.owner.surname + ' ' + otinish.owner.name + ' ' + otinish.owner.midName}"></span></td>
+                                        <td><a th:href="@{'/otinish?id='+ ${otinish.id}}">Көру</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- End col -->
             </div>
-            <!-- End row -->
         </div>
-        <!-- End Contentbar -->
+
         <!-- Start Footerbar -->
         <div class="footerbar">
             <footer class="footer">
@@ -339,7 +362,6 @@
     <!-- End Rightbar -->
 </div>
 <!-- End Containerbar -->
-
 <!-- Start js -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/popper.min.js"></script>

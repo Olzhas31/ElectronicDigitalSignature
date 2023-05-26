@@ -28,7 +28,14 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login", "/forget-pass", "/download-key", "/download-key/**")
+                .requestMatchers(
+                        "/login",
+                        "/forget-pass",
+                        "/download-key",
+                        "/download-key/**",
+                        "/contact-us",
+                        "/about-us",
+                        "/")
                     .permitAll()
                 .anyRequest()
                     .authenticated()
